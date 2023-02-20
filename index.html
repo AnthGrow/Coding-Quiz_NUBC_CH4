@@ -4,8 +4,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    
+  <div id="quiz-container">
+    <h1>Code Quiz</h1>
+    <div id="question-container"></div>
+    <div id="answer-buttons-container"></div>
+    <div id="feedback-container"></div>
+    <button id="submit-button">Submit</button>
+    <button id="start-button">Start Quiz</button>
+  </div>
+  <div id="score-container">
+    <h1>Your Score</h1>
+    <p id="final-score"></p>
+    <form>
+      <label for="initials-input">Enter Your Initials:</label>
+      <input type="text" id="initials-input" name="initials">
+      <button id="save-score-button">Save Score</button>
+    </form>
+  </div>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
+<!-- Pseudo Code
+
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
+
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and my score 
+
+
+
+Title
+start button that when clicked reveals the first question, and starts the timer
+The first question will have selectable button answers that when clicked will display whether the answer is correct or incorrect
+if correct it will advance to the next question, if incorrect it will remain on the question until the correct answer is chosen
+After the last question it will say all done, show you your score, and ask for your initials
+There will be a view highschores area in the top of the page where these initials will go after taking the quiz
+ 
+-->

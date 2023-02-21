@@ -21,7 +21,7 @@ const quizQuestions = [
       correctAnswer: "3"
     },
     {
-      question: "What is the result of the following expression?\nBoolean('false')",
+      question: "What is the result of the following expression: Boolean('false')",
       answers: ["false", "true", "TypeError", "undefined"],
       correctAnswer: "true"
     }
@@ -110,7 +110,7 @@ const quizQuestions = [
     if (selectedAnswer === currentQuestion.correctAnswer) {
       // Display "Correct!" message
       const message = document.createElement("p");
-      message.innerText = "Correct!";
+      message.innerText = "Congrats!";
       message.classList.add("text-success");
       answerButtons.appendChild(message);
   
@@ -125,24 +125,51 @@ const quizQuestions = [
     };
 }
 
+// submitButton.addEventListener("click", submitInitials);
+
 function endGame() {
-    // Stop the timer
-    clearInterval(timerIntervalId);
-    
-    // Hide the quiz container and show the initials form
-    quizContainer.classList.add("hide");
-    initialsForm.classList.remove("hide");
-    
-    // Display the final score
-    const score = timeLeft;
-    const scoreMessage = document.createElement("p");
-    scoreMessage.innerText = "Your final score is " + score;
-    highscoresContainer.appendChild(scoreMessage);
-    
-    // Save the score to local storage
-    const initials = initialsInput.value;
-    const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-    highscores.push({ initials: initials, score: score });
-    localStorage.setItem("highscores", JSON.stringify(highscores));
+  // Stop the timer
+  clearInterval(timerIntervalId);
+
+  // Hide the quiz container and show the initials form
+  quizContainer.classList.add("hide");
+  initialsForm.classList.remove("hide");
+
+  // Display the final score
+  const score = timeLeft;
+  const scoreMessage = document.createElement("p");
+  scoreMessage.innerText = "Your final score is " + score;
+  highscoresContainer.appendChild(scoreMessage);
+
+  // Save the score to local storage
+  const initials = initialsInput.value;
+  const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  highscores.push({ initials: initials, score: score });
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  // Display the highscores
+  displayHighscores();
+}
+
+function displayHighscores() {
+  // Hide the initials form and show the highscores container
+  initialsForm.classList.add("hide");
+  highscoresContainer.classList.remove("hide");
+
+  // Clear previous highscores
+  while (highscoresList.firstChild) {
+    highscoresList.removeChild(highscoresList.firstChild);
   }
+
+  // Get highscores from local storage and sort them in descending order
+  const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  highscores.sort((a, b) => b.score - a.score);
+
+  // Display highscores
+  highscores.forEach((highscore, index) => {
+    const highscoreItem = document.createElement("li");
+    highscoreItem.innerText = `${index + 1}. ${highscore.initials}: ${highscore.score}`;
+    highscoresList.appendChild(highscoreItem);
+  });
+}
 

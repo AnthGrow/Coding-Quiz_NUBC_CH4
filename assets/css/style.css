@@ -1,5 +1,5 @@
 body {
-  background-color: #f9f9f9;
+  background-image: linear-gradient(rgb(255, 216, 246), rgb(118, 34, 253));
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -13,17 +13,19 @@ body {
 }
 
 #quiz-container h1 {
-  font-size: 40px;
+  color: white;
+  font-size: 50px;
   margin-bottom: 20px;
+  text-shadow: 4px 4px 6px black;
 }
 
-#question-container {
+#question {
   font-size: 24px;
   margin-bottom: 20px;
-  text-align: left;
+  text-align: center;
 }
 
-#answer-buttons-container {
+#answer-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,12 +79,13 @@ body {
 #start-button {
   margin-right: 10px;
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #37ba3c;
   color: #fff;
   font-size: 18px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 2px 2px 5px black;
 }
 
 #score-container {
@@ -93,9 +96,24 @@ body {
   text-align: center;
 }
 
-#score-container h1 {
-  font-size: 40px;
+#highscores-container {
+  font-size: 20px;
   margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+label {
+  display: block;
+  padding-left: 20px;
+
+}
+
+#initials-input{
+  margin-left: 20px;
+}
+
+#save-score-button{
+
 }
 
 #final-score {

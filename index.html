@@ -9,19 +9,22 @@
 
 <body>
   <div id="quiz-container">
-    <h1>Code Quiz</h1>
+    <h1>Coding Quiz</h1>
     <div id="time"></div>
     <div id="question"></div>
     <div id="answer-buttons"></div>
     <div id="feedback-container"></div>
     <button id="submit-button">Submit</button>
     <button id="start-button">Start Quiz</button>
+    <div id="game-over"></div>
   </div>
-  <div id="highscores-container">
-    <h1>Your Score</h1>
-    <p id="final-score"></p>
+  <div id="highscores-container" class="hide">
+    <h2>Your Score</h2>
+    <ul id="highscores-list"></ul>
+   </div> 
     <form>
       <label for="initials-input">Enter Your Initials:</label>
+      <br>
       <input type="text" id="initials-input" name="initials">
       <button id="save-score-button">Save Score</button>
     </form>
